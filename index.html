@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Love Archive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="terminal">
+    <h1 id="terminal-title">OUR LOVE ARCHIVE</h1>
+    <p id="terminal-text">WELCOME...</p>
+
+    <input type="password" id="accesskey" placeholder="ENTER ANNIVERSARY KEY">
+
+    <button type="button" class="btn" onclick="checkAccess()">ENTER</button>
+  </div>
+
+  <!-- GLITCH MESSAGE OVERLAY -->
+  <div id="warning-overlay">
+    <div class="scanlines"></div>
+  </div>
+
+  <script>
+    function typeText(element, text, speed = 40) {
+      let i = 0;
+      element.innerHTML = '';
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }
+
+    function checkAccess() {
+      const keyInput = document.getElementById('accesskey');
+      const key = keyInput.value.trim();
+      const terminalText = document.getElementById('terminal-text');
+      const overlay = document.getElementById('warning-overlay');
+
+      // Anniversary key: 16.02
+      if (key === "1602") {
+        keyInput.disabled = true;
+
+        overlay.style.display = 'flex';
+        overlay.innerHTML = `
+          <div class="warning-text">
+            IF YOU'RE NOT MY WIFE THEN<br>FUCK OFF BITCH
+          </div>
+          <div class="scanlines"></div>
+        `;
+
+        // redirect to gallery after 2.5 seconds
+        setTimeout(() => {
+          window.location.href = "gallery.html";
+        }, 2500);
+
+        return;
+      }
+
+      // Wrong key
+      typeText(terminalText, 'ACCESS DENIED...');
+      keyInput.value = '';
+    }
+
+    typeText(document.getElementById('terminal-text'), "WELCOME...");
+  </script>
+
+</body>
+</html>
