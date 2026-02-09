@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 /* Terminal container */
 .terminal {
   border: 1px solid #ff6688;
   padding: 20px;
   width: 92%;
-  max-width: 420px;
+  max-width: 500px;
   background: linear-gradient(145deg, #fff0f5, #ffd6e0);
   font-family: monospace;
   color: #b3003b;
@@ -12,10 +14,13 @@
 }
 
 /* Headings */
-.terminal h1, .terminal h2 { color: #ff3366; font-family: 'Courier New', monospace; }
+.terminal h1, .terminal h2 { 
+  color: #ff3366; 
+  font-family: 'Courier New', monospace; 
+}
 
 /* Inputs */
-.terminal input {
+.terminal input, .terminal textarea {
   width: 100%;
   background-color: #fff0f5;
   color: #b3003b;
@@ -23,6 +28,7 @@
   padding: 8px;
   margin: 8px 0;
   border-radius: 6px;
+  font-family: monospace;
 }
 
 /* Buttons */
@@ -42,6 +48,28 @@
 .terminal .btn:hover {
   background: #ffccd5;
   transform: scale(1.05);
+}
+
+/* Photo grid */
+.photo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.photo-grid img {
+  width: 48%;
+  border-radius: 8px;
+  border: 1px solid #b3003b;
+}
+
+.photo-caption {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: #ff3366;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 /* Status badges */
@@ -67,7 +95,6 @@
   border-radius:12px;
 }
 
-/* Scanlines */
 .scanlines {
   position:absolute;
   top:0; left:0;
