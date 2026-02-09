@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photo 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="terminal">
+  <h2>PHOTO 1</h2>
+
+  <input type="password" id="photoKey" placeholder="ENTER PHOTO PASSWORD">
+  <button class="btn" onclick="unlockPhoto()">UNLOCK</button>
+
+  <div id="photoContainer" class="photo-grid"></div>
+
+  <h3>Notes</h3>
+  <textarea id="note" placeholder="Write your thoughts..."></textarea>
+  <button class="btn" onclick="saveNote()">Save Note</button>
+</div>
+
+<script>
+  const photos = [
+    { src: 'photos/photo01_1.jpg', caption: 'A lovely rose 🌹' },
+    { src: 'photos/photo01_2.jpg', caption: 'Sweet memories 💌' }
+  ];
+
+  const password = "rose"; // password for this page
+  const noteKey = 'photo01_note';
+
+  // Load saved note
+  const savedNote = localStorage.getItem(noteKey);
+  if(savedNote) document.getElementById('note').value = savedNote;
+
+  function unlockPhoto() {
+    const key = document.getElementById('photoKey').value.trim();
+    const container = document.getElementById('photoContainer');
+
+    if(key === password) {
+      container.innerHTML = photos.map(p =>
+        `<div>
+          <img src="${p.src}">
+          <div class="photo-caption">${p.caption}</div>
+        </div>`
+      ).join('');
+    } else {
+      container.innerHTML = `<p class="status-locked">WRONG PASSWORD</p>`;
+    }
+  }
+
+  function saveNote() {
+    const note = document.getElementById('note').value;
+    localStorage.setItem(noteKey, note);
+    alert("Note saved!");
+  }
+</script>
+
+</body>
+</html>
