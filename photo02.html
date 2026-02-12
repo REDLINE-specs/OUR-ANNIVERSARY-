@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Photo 1</title>
+  <title>Photo 2</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="terminal">
-  <h2>PHOTO 1</h2>
+  <h2>PHOTO 2</h2>
 
   <input type="password" id="photoKey" placeholder="ENTER PHOTO PASSWORD">
   <button class="btn" onclick="unlockPhoto()">UNLOCK</button>
@@ -21,12 +21,12 @@
 
 <script>
   const photos = [
-    { src: 'photos/photo02_a.jpg', caption: 'A lovely rose 🌹' },
-    { src: 'photos/photo02_b.jpg', caption: 'Sweet memories 💌' }
+    { src: 'photos/photo02_a.jpg', caption: 'Goofy 🌹' },
+    { src: 'photos/photo02_b.jpg', caption: 'Serious 💌' }
   ];
 
-  const password = "lily"; // password for this page
-  const noteKey = 'photo01_note';
+  const password = "home"; // password for this page
+  const noteKey = 'photo02_note';
 
   // Load saved note
   const savedNote = localStorage.getItem(noteKey);
